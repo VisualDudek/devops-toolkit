@@ -1,0 +1,18 @@
+- name: Debug
+  hosts: ubuntu
+  become: true
+  vars:
+    a: 1
+    b: 2
+    elements: [1, 2, 3]
+    ele:
+      - 1
+      - 2
+      - 3
+  tasks:
+    - name: Print
+      ansible.builtin.debug:
+        msg: "this is me {{ item }}"
+      when:
+        - a == 1 or b == 2
+      loop: "{{ elements }}"

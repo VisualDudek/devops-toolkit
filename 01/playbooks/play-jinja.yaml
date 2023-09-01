@@ -1,0 +1,11 @@
+- name: Render Configure
+  hosts: all
+  become: true
+  vars:
+    verbosity: DEBUG
+  tasks:
+    - name: Copy Configure
+      ansible.builtin.template:
+        src: ../templates/cfg.j2
+        dest: /etc/server.cfg
+        mode: '0600'

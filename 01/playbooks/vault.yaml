@@ -1,0 +1,9 @@
+- name: Configure license
+  hosts: all
+  become: true
+  tasks:
+    - name: Copy license
+      ansible.builtin.copy:
+        src: ../secret.txt
+        dest: /etc/secret.txt
+        mode: '0600'

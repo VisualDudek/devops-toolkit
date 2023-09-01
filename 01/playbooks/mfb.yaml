@@ -1,0 +1,21 @@
+# - name: Create user
+#   hosts: all
+#   become: true
+#   tasks:
+#     - name: Create user
+#       ansible.builtin.user:
+#         name: '{{ item.login }}'
+#         create_home: false
+#         state: '{{ item.state }}'
+#       loop:
+#         - {login: jw, state: absent}
+#         - {login: kg, state: absent}
+- name: Install Apache
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: absent
+      when: 

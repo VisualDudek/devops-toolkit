@@ -1,0 +1,17 @@
+- name: Create EC2 instance 
+  hosts: all
+  become: true
+  roles:
+    - users
+  tasks:
+    - name: List users
+      ansible.builtin.shell:
+        cmd: "cat /etc/passwd"
+      register: out
+      tags:
+        - debug
+    - name: Print
+      ansible.builtin.debug:
+        msg: "{{ out }}"
+      tags:
+        - debug

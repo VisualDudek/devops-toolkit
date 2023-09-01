@@ -1,0 +1,8 @@
+amazon:
+  hosts:
+    34.244.5.176:
+      ansible_user: ec2-user
+ubuntu:
+  hosts:
+    34.249.163.68:
+      ansible_user: ubuntu

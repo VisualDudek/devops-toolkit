@@ -1,0 +1,8 @@
+users:
+  - username: jw
+    state: present
+  - username: kg
+    state: present
+  - username: pd
+    state: present
+    

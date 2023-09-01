@@ -1,0 +1,17 @@
+- name: Install Apache
+  hosts: all
+  become: true
+  vars:
+    pkg_state: absent
+  tasks:
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: '{{ pkg_state }}'
+      when: ansible_facts.os_family | lower == 'debian'
+
+    - name: Install Apache
+      ansible.builtin.yum:
+        name: httpd
+        state: '{{ pkg_state }}'
+      when: ansible_facts.os_family | lower == 'redhat'

@@ -1,0 +1,9 @@
+- name: Create EC2 instance 
+  hosts: localhost
+  tasks:
+    - name: Copy Configure
+      amazon.aws.ec2_instance:
+        state: absent
+        name: ansible-14
+        instance_type: t3.micro
+        image_id: ami-057b6e529186a8233
